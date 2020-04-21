@@ -27,7 +27,7 @@ $(document).ready(function () {
 
 
   $("#fireimg").on('click', function(){
-    $("#chopMiniGame").toggle();
+    $("#chopMiniGame").animate({height: "toggle"}, 500);
   });
 
   //Accuracy Check
