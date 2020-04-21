@@ -27,8 +27,8 @@ export class Game {
     while (this.fed > 0) {
         let start = Math.ceil(Math.random() * 5000) + 5000;
         let end = Math.ceil(Math.random() * 5000) + 10000;
-        setTimeout(function() { toggleFood();}, start);
-        setTimeout(function() { toggleFood();}, end);
+        setTimeout(function() { toggleFood("show");}, start);
+        setTimeout(function() { toggleFood("hide");}, end);
         await new Promise(resolve => setTimeout(resolve, end));
         console.log(this.fed)
     }

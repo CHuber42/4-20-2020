@@ -12,8 +12,14 @@ export function gameOver() {
   $("#gameover").show();
 }
 
-export function toggleFood() {
-  $("#food").toggle();
+export function toggleFood(mode) {
+  console.log(`call toggle with ${mode}`)
+  if (mode === "hide"){
+    $("#food").animate({width: "0"}, 500);
+  }
+  else if (mode === "show") {
+    $("#food").animate({width: "10vw"}, 500);
+  }
 }
 
 
@@ -37,7 +43,7 @@ $(document).ready(function () {
 
   $("#food").on("click", function() {
     game.fed += 4;
-    $("#food").hide();
+    toggleFood("hide");
   });
 })
 
