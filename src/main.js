@@ -1,9 +1,7 @@
-// import 'bootstrap';
-
-
+import 'bootstrap';
 import './styles.css';
 import $ from "jquery";
-import { Game, Timer } from './survival';
+import { Game, fuelTimer } from './survival';
 
 export function updateFireDisplay(fuelLevel) {
   $("#fuel").text(fuelLevel)
@@ -12,10 +10,11 @@ export function updateFireDisplay(fuelLevel) {
 
 $(document).ready(function () {
   let game = new Game;
-  let timer = new Timer;
+  let timer = new fuelTimer;
   game.fuelTimer = timer;
   game.runAccuracyClock();
   game.startGame();
+  game.foodGame();
 
 
   $("#fireimg").on('click', function(){
@@ -28,9 +27,8 @@ $(document).ready(function () {
   });
 
   $("#food").on("click", function() {
-    let timeoutDuration = Math.random() * 10000;
+    game.fed += 4;
     $("#food").hide();
-    setTimeout($("#food").show(), timeoutDuration);
   });
 })
 

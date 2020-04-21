@@ -14,13 +14,26 @@ export class Game {
     this.fed = 10;
     setInterval(() => {
       this.fuel--;
+      this.fed--;
       updateFireDisplay(this.fuel);
       if (this.fuel <= 0) {
         //game end
       }
     }, 5000);
-  }
   
+  }
+////////////////////////new
+  async foodGame() {
+    while (this.fed > 0) {
+        let start = Math.ceil(Math.random() * 5000) + 5000;
+        let end = Math.ceil(Math.random() * 5000) + 10000;
+        setTimeout(function() { $("#food").show();}, start);
+        setTimeout(function() { $("#food").hide();}, end);
+        await new Promise(resolve => setTimeout(resolve, end));
+        console.log(this.fed)
+    }
+  }
+  //////////////////////////////
   chopWood() {
     
     this.fuelTimer.currentAccuracy = Math.abs(this.fuelTimer.intervals - 100);
