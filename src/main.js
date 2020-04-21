@@ -9,7 +9,7 @@ export function updateFireDisplay(fuelLevel) {
 }
 
 export function gameOver() {
-  $("#gameover").show();
+  $("#gameover").animate({opacity: "1"}, 2000);
 }
 
 export function toggleFood(mode) {
@@ -30,7 +30,6 @@ $(document).ready(function () {
   game.runAccuracyClock();
   game.startGame();
   game.foodGame();
-
 
   $("#fireimg").on('click', function(){
     $("#chopMiniGame").animate({height: "toggle"}, 500);

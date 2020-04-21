@@ -31,7 +31,7 @@ html body .container{
 }
 
 #gameover {
-  display: none;
+  opacity: 0;
   position: fixed;
   margin-top: 0;
   background-image: url('./../assets/images/gameover.gif');
