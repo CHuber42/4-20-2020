@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { updateFireDisplay } from './main.js';
+import { updateFireDisplay, gameOver, toggleFood } from './main.js';
 
 export class Game {
   constructor() {
@@ -16,8 +16,8 @@ export class Game {
       this.fuel--;
       this.fed--;
       updateFireDisplay(this.fuel);
-      if (this.fuel <= 0) {
-        //game end
+      if (this.fuel <= 0 || this.fed <= 0) {
+        gameOver();
       }
     }, 5000);
   
@@ -27,8 +27,8 @@ export class Game {
     while (this.fed > 0) {
         let start = Math.ceil(Math.random() * 5000) + 5000;
         let end = Math.ceil(Math.random() * 5000) + 10000;
-        setTimeout(function() { $("#food").show();}, start);
-        setTimeout(function() { $("#food").hide();}, end);
+        setTimeout(function() { toggleFood();}, start);
+        setTimeout(function() { toggleFood();}, end);
         await new Promise(resolve => setTimeout(resolve, end));
         console.log(this.fed)
     }

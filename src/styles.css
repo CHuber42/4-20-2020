@@ -30,3 +30,14 @@ html body .container{
   background-size: cover;
   background-position: center;
 }
+
+#gameover {
+  display: none;
+  position: fixed;
+  margin-top: 0;
+  background-image: url('./../assets/images/gameover.gif');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+}

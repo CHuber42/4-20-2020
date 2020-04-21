@@ -8,6 +8,15 @@ export function updateFireDisplay(fuelLevel) {
   document.getElementById("fireimg").style.opacity = (fuelLevel/30);
 }
 
+export function gameOver() {
+  $("#gameover").show();
+}
+
+export function toggleFood() {
+  $("#food").toggle();
+}
+
+
 $(document).ready(function () {
   let game = new Game;
   let timer = new fuelTimer;
